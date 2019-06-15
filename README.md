@@ -4,6 +4,7 @@ Please have git (https://git-scm.com ) and node ( https://nodejs.org ) installed
 Node.js package manager, comes with Node.js. Please make sure npm version is >=5
 
 git clone "https://github.com/adarshbhattarai/datakuti-ui.git"
+
 cd danta-kuti and npm i
 
 WARNING!
