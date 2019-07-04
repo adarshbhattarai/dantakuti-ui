@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './@core/core.module';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
@@ -17,7 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NbPasswordAuthStrategy, NbAuthModule,NbAuthJWTToken, NbOAuth2AuthStrategy,NbOAuth2ResponseType } from '@nebular/auth';
 import { AuthGuard } from './auth.guard';
 import { fakeBackendProvider } from './_helpers/fake_backend';
-
+import { AddTokenInterceptor } from './_helpers/add-token-interceptor'
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -33,14 +32,27 @@ import { fakeBackendProvider } from './_helpers/fake_backend';
       strategies: [
         NbPasswordAuthStrategy.setup({
           name: 'email',
-          baseEndpoint: 'auth',
+          baseEndpoint: 'http://localhost:8080',
           login: {
-            endpoint: '/login',
+            endpoint: '/auth/login',
+            method: 'post',
           },
           token: {
             class: NbAuthJWTToken,
             key:'token'
-          }
+          },
+          register: {
+            endpoint: '/auth/register',
+            method: 'post',
+          },
+          requestPass: {
+            endpoint: '/auth/request-pass',
+            method: 'post',
+          },
+          resetPass: {
+            endpoint: '/auth/reset-pass',
+            method: 'post',
+          },
         }),
         NbOAuth2AuthStrategy.setup({
           name: 'google',
@@ -60,7 +72,8 @@ import { fakeBackendProvider } from './_helpers/fake_backend';
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
     AuthGuard,
-    fakeBackendProvider
+    fakeBackendProvider,
+    AddTokenInterceptor
   ],
 })
 export class AppModule {

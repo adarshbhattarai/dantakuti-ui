@@ -13,7 +13,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         return of(null).pipe(mergeMap(() => {
 
             // authenticate - public
-            if (request.url.endsWith('auth/login') && request.method === 'POST') {
+            if (request.url.endsWith('asddsa/login') && request.method === 'POST') {
                 console.log("Interceptor")
                 
                 if(request.body.email === "test@test.com" && request.body.password ===  "test"){

@@ -12,13 +12,9 @@ export class LoginComponent extends NbLoginComponent{
   
   login(){
 
-    
-    console.log(this.user)
-
     this.service.authenticate(this.strategy, this.user).subscribe((result: NbAuthResult) => {
       this.submitted = false;
 
-      console.log(result);
       if (result.isSuccess()) {
         this.messages = result.getMessages();
       } else {

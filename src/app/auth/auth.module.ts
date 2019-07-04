@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { NgxAuthRoutingModule } from './auth-routing.module';
 import { NbAuthModule } from '@nebular/auth';
 import { LoginComponent } from './login/login.component'; 
+import { RegisterComponent } from './register/register.component';
+import { RequestPasswordComponent } from './request-password/request-password.component';
 
 import { 
   NbAlertModule,
@@ -29,7 +31,9 @@ import {
     NbAuthModule,
   ],
   declarations: [
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    RequestPasswordComponent
   ],
 })
 export class NgxAuthModule {
