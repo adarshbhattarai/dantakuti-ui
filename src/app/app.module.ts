@@ -16,7 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NbPasswordAuthStrategy, NbAuthModule,NbAuthJWTToken, NbOAuth2AuthStrategy,NbOAuth2ResponseType } from '@nebular/auth';
 import { AuthGuard } from './auth.guard';
 import { fakeBackendProvider } from './_helpers/fake_backend';
-import { AddTokenInterceptor } from './_helpers/add-token-interceptor'
+import { AddTokenInterceptor, tokenInterceptor } from './_helpers/add-token-interceptor'
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -73,7 +73,7 @@ import { AddTokenInterceptor } from './_helpers/add-token-interceptor'
     { provide: APP_BASE_HREF, useValue: '/' },
     AuthGuard,
     fakeBackendProvider,
-    AddTokenInterceptor
+    tokenInterceptor
   ],
 })
 export class AppModule {

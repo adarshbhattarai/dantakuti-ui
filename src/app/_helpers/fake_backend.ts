@@ -6,6 +6,9 @@ import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+        //No More in Use
+        return next.handle(request);
         //const authHeader = request.headers.get('Authorization');
        // const isLoggedIn = authHeader && authHeader.startsWith('Bearer fake-jwt-token');
 

@@ -20,7 +20,6 @@ export class RegisterComponent extends NbRegisterComponent{
       } else {
         this.errors = result.getErrors();
       }
-
       const redirect = result.getRedirect();
       if (redirect) {
         setTimeout(() => {
