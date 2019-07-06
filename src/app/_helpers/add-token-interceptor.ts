@@ -22,7 +22,6 @@ export class AddTokenInterceptor implements HttpInterceptor {
 
 }
 export let tokenInterceptor = {
-    // use fake backend in place of Http service for backend-less development
     provide: HTTP_INTERCEPTORS,
     useClass: AddTokenInterceptor,
     multi: true
