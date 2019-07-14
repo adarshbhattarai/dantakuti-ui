@@ -1,0 +1,26 @@
+version: '3'
+services:
+  dantakuti:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dantakuti-ui
+    networks:
+      - dantakuti-ui
+    ports:
+      - '3001:3001'
+    environment:
+     - HOST=0.0.0.0
+    command: npm run start
+    volumes:
+    # Mounts the project directory on the host to /dantakuti-ui inside the container,
+    # allowing you to modify the code without having to rebuild the image.
+     - .:/dantakuti-ui
+    # Just specify a path and let the Engine create a volume.
+    # Data present in the base image at the specified mount point will be copied
+    # over to the new volume upon volume initialization.
+    # node_modules from this new volume will be used and not from your local dev env.
+     - /dantakuti-ui/node_modules/
+networks:
+  dantakuti-ui:
+    driver: bridge

@@ -1,5 +1,14 @@
-FROM node:10.15.1
+FROM node:10.5.0-alpine as node
 
-RUN mkdir /Users/adarshbhattarai/code_data/data/interfaces/
+WORKDIR /app
 
-WORKDIR 
+COPY . .
+
+RUN npm i && npm audit fix 
+
+#RUN npm rebuild node-sass
+RUN npm run build --prod
+
+
+FROM nginx:alpine
+COPY --from=node /app/dist/dantakuti /usr/share/nginx/html

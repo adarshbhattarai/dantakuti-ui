@@ -32,7 +32,7 @@ import { AddTokenInterceptor, tokenInterceptor } from './_helpers/add-token-inte
       strategies: [
         NbPasswordAuthStrategy.setup({
           name: 'email',
-          baseEndpoint: 'http://localhost:8080',
+          baseEndpoint: 'http://www.dantakuti.com:3000',
           login: {
             endpoint: '/auth/login',
             method: 'post',
