@@ -1,8 +1,7 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
 export const environment = {
+  name: "prod",
   production: true,
+  settings: {
+    backend: 'http://www.dantakuti.com:3000'
+  }
 };

@@ -7,8 +7,26 @@ COPY . .
 RUN npm i && npm audit fix 
 
 #RUN npm rebuild node-sass
-RUN npm run build --prod
+RUN npm run build -- --prod
 
 
 FROM nginx:alpine
+
+## Remove default nginx website
+RUN rm -rf /usr/share/nginx/html/*
+
 COPY --from=node /app/dist/dantakuti /usr/share/nginx/html
+
+##RUN echo "mainFileName=\"\$(ls /usr/share/nginx/html/main*.js)\" && \
+##          envsubst '\$PROD_URL ' < \${mainFileName} > main.tmp && \
+##          mv main.tmp \${mainFileName} && nginx -g 'daemon off;'" > run.sh
+
+##ENTRYPOINT ["sh", "run.sh"]
+
+
+# Copy the EntryPoint
+#ADD ./entryPoint.sh /entryPoint.sh
+#RUN chmod +x entryPoint.sh
+#CMD dos2unix entryPoint.sh
+#ENTRYPOINT ["/entryPoint.sh"]
+CMD ["nginx", "-g", "daemon off;"]

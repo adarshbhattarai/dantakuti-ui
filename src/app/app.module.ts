@@ -16,7 +16,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NbPasswordAuthStrategy, NbAuthModule,NbAuthJWTToken, NbOAuth2AuthStrategy,NbOAuth2ResponseType } from '@nebular/auth';
 import { AuthGuard } from './auth.guard';
 import { fakeBackendProvider } from './_helpers/fake_backend';
-import { AddTokenInterceptor, tokenInterceptor } from './_helpers/add-token-interceptor'
+import { tokenInterceptor } from './_helpers/add-token-interceptor';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -32,7 +34,7 @@ import { AddTokenInterceptor, tokenInterceptor } from './_helpers/add-token-inte
       strategies: [
         NbPasswordAuthStrategy.setup({
           name: 'email',
-          baseEndpoint: 'http://www.dantakuti.com:3000',
+          baseEndpoint: environment.settings.backend,
           login: {
             endpoint: '/auth/login',
             method: 'post',
@@ -77,4 +79,12 @@ import { AddTokenInterceptor, tokenInterceptor } from './_helpers/add-token-inte
   ],
 })
 export class AppModule {
+  /*
+  constructor(@Inject('PROD_URL') private apiUrl: string) {
+  }
+
+  getApiUrl(): string {
+    return this.apiUrl;
+  }
+  */
 }
