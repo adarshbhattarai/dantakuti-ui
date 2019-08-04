@@ -10,12 +10,16 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: './auth/auth.module#NgxAuthModule',
   },
-  { path: '', redirectTo: 'auth', pathMatch: 'full' },
-  { path: '**', redirectTo: 'auth' },
+  {
+    path: '',
+    loadChildren: './dashboard/dashboard.module#DashboardModule',
+  },
+  { path: '**', redirectTo: '' },
 ];
 
 const config: ExtraOptions = {
-  useHash: true,
+  useHash: false,
+  enableTracing: false
 };
 
 @NgModule({

@@ -1,0 +1,79 @@
+.carousel-inner > .carousel-item {
+    height: 500px;
+    width:100%;
+    overflow: hidden;
+    padding: 15px 20px 600px 20px;
+ }
+
+.carousel {
+    margin-bottom: 4rem;
+}
+
+.carousel-inner > .carousel-item img{
+    width:100%;
+ }
+
+ .pull-md-7 {
+    right: 58.333333%;
+}
+
+.push-md-5 {
+    left: 41.666667%;
+}
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.featurette-heading {
+    margin-top: 7rem;
+}
+
+.map-container-5{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+    }
+    .map-container-5 iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+    }
+agm-map {
+    height: 300px;
+}    
+
+.card.card-cascade.narrower .view.view-cascade {
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: -1.25rem;
+}
+.card.card-cascade .view.view-cascade.gradient-card-header {
+    padding: 1.6rem 1rem;
+    text-align: center;
+}
+.card {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    border: 0;
+    font-weight: 400;
+}
+.view {
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+}
+.card.card-cascade .view.view-cascade {
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+    border-radius: .25rem;
+}
+.blue-gradient {
+    background: linear-gradient(40deg,#45cafc,#303f9f)!important;
+}
+
+.md-form{
+    padding: 8px;
+}

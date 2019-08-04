@@ -1,0 +1,22 @@
+@import '../@theme/styles/themes';
+.left {
+    margin-left: auto;
+  }
+  .profile {
+    cursor: pointer;
+  }
+  .logo {
+    padding: 0 nb-theme(padding);
+    font-size: 1.75rem;
+    font-weight: nb-theme(font-weight-bolder);
+    @include nb-ltr(border-left, 1px solid nb-theme(separator));
+    @include nb-rtl(border-right, 1px solid nb-theme(separator));
+    white-space: nowrap;
+
+    span {
+      font-weight: nb-theme(font-weight-normal);
+    }
+  }
+.front-page{
+    padding-top: 10px;
+}    
