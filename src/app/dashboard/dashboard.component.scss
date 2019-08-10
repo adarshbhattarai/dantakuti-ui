@@ -16,7 +16,13 @@
     span {
       font-weight: nb-theme(font-weight-normal);
     }
+    
   }
 .front-page{
     padding-top: 10px;
 }    
+@media screen and (max-width: 600px) {
+  #picture{
+      display: none;
+   }
+}

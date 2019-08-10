@@ -1,0 +1,21 @@
+
+<nb-card size="giant">
+
+    <nb-card-header>Services We Offer</nb-card-header>
+    <nb-card-body>
+        <nb-accordion>
+            <nb-accordion-item *ngFor="let sewa of dantasewa"  >
+                <nb-accordion-item-header>
+
+                    <div class="cover">
+                        <img alt="Generic placeholder image" class="rounded-circle" height="140" src={{sewa.picture}} width="140">
+                    </div>
+                    <div class="details" style="padding:2px"><h4>{{sewa.name}}</h4><span> {{sewa.shortDesc}} </span></div>
+                </nb-accordion-item-header>
+                <nb-accordion-item-body >
+                    <p class="lead">{{sewa.description}} </p>
+                </nb-accordion-item-body>
+            </nb-accordion-item>
+        </nb-accordion> 
+    </nb-card-body>  
+  </nb-card>

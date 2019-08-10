@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   <nb-layout>
   <nb-layout-header fixed>
   <div class="logo-container">
-    <nb-action><h2><img [src]="'./../favicon.png'" style= "width:50px; height:50px"/> Danta-<span>kuti</span></h2></nb-action>
+    <nb-action><h2><img id = "picture" [src]="'./../favicon.png'" style= "width:50px; height:50px"/> Danta-<span>kuti</span></h2></nb-action>
   </div>
     <nb-actions class="left">
       <nb-action>Booking</nb-action>

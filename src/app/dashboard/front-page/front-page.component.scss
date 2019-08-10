@@ -1,9 +1,11 @@
-.carousel-inner > .carousel-item {
-    height: 500px;
-    width:100%;
-    overflow: hidden;
-    padding: 15px 20px 600px 20px;
- }
+@media screen and (min-width: 900px) {
+    .carousel-inner > .carousel-item {
+        height: 500px;
+        width:100%;
+        overflow: hidden;
+        padding: 15px 20px 600px 20px;
+     }
+  }
 
 .carousel {
     margin-bottom: 4rem;
@@ -12,7 +14,7 @@
 .carousel-inner > .carousel-item img{
     width:100%;
  }
-
+@media screen and (min-width: 900px) {
  .pull-md-7 {
     right: 58.333333%;
 }
@@ -21,13 +23,14 @@
     left: 41.666667%;
 }
 
+}
 .lead {
     font-size: 1.25rem;
     font-weight: 300;
 }
 
 .featurette-heading {
-    margin-top: 7rem;
+    margin-top: 2rem;
 }
 
 .map-container-5{
@@ -76,4 +79,35 @@ agm-map {
 
 .md-form{
     padding: 8px;
+}
+
+.blue.accent-1 {
+    background-color: #82b1ff!important;
+}
+
+.btn-floating i {
+    display: inline-block;
+    width: inherit;
+    text-align: center;
+    color: #fff;
+}
+.btn-floating i {
+    font-size: 1.25rem;
+    line-height: 47px;
+}
+
+.btn-floating {
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+    width: 47px;
+    height: 47px;
+    position: relative;
+    z-index: 1;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+    margin: 10px;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
 }
