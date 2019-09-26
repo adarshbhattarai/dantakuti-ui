@@ -13,6 +13,7 @@ import { AuthGuard } from './auth.guard';
 import { fakeBackendProvider } from './_helpers/fake_backend';
 import { tokenInterceptor } from './_helpers/add-token-interceptor';
 import { environment } from '../environments/environment';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    HttpModule,
     AppRoutingModule,
 
     NgbModule.forRoot(),
@@ -41,6 +43,10 @@ import { environment } from '../environments/environment';
           register: {
             endpoint: '/auth/register',
             method: 'post',
+            redirect: {
+              success: 'auth/login', 
+              failure: null, 
+            },
           },
           requestPass: {
             endpoint: '/auth/request-pass',

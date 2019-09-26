@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
   <nb-layout>
   <nb-layout-header fixed>
   <div class="logo-container">
-    <nb-action><h2><img id = "picture" [src]="'./../favicon.png'" style= "width:50px; height:50px"/> Danta-<span>kuti</span></h2></nb-action>
+    <nb-action><a routerLink=''><h2><img id = "picture" [src]="'./../favicon.png'" style= "width:50px; height:50px"/> Danta-<span>kuti</span></h2></a></nb-action>
   </div>
     <nb-actions class="left">
-      <nb-action>Booking</nb-action>
-      <nb-action>Gallery</nb-action>
+      <nb-action><a routerLink='/booking'>Booking</a></nb-action>
+      <nb-action><a routerLink='/gallery'>Gallery</a></nb-action>
       <nb-action><a routerLink='/auth'>Login</a></nb-action>
     </nb-actions>
   </nb-layout-header>

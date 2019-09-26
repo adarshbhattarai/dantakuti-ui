@@ -14,6 +14,7 @@ export class RegisterComponent extends NbRegisterComponent{
     this.submitted = true;
 
     this.service.register(this.strategy, this.user).subscribe((result: NbAuthResult) => {
+      console.log(result);
       this.submitted = false;
       if (result.isSuccess()) {
         this.messages = result.getMessages();

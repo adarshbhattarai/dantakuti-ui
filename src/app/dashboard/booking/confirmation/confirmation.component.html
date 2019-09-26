@@ -1,0 +1,53 @@
+<form [formGroup]="confirmationFrm" (ngSubmit)="confirmationSubmit()" class="step-container">
+
+    <ng-template #labelFour>Confirmation</ng-template>
+    <div *ngIf='bookingResult'>
+            <nb-alert status="success">
+                    <h3>Thank You For Booking with us!!</h3>
+            </nb-alert>
+            <nb-card-body>
+                    <h4>Confirmation</h4>
+                    <p><span> <b>{{bookingResult.results.firstName}}</b>, We would like to inform that you have scheduled an appointment on  </span>
+                        <strong>{{bookingResult.results.appointment.appointmentDate | date}}</strong> at
+                        <strong>{{bookingResult.results.appointment.appointmentTime}}.</strong>
+                    </p>
+                    <hr class="featurette-divider">                  
+            </nb-card-body>
+
+            <nb-card-body>
+                    <h4>Based on the information provided, following is your appointment detail. </h4>
+                    <div style="text-align: center;">
+                            <div style="display: inline-block; text-align: left;">
+                    <p> <strong>Name: </strong> <span *ngIf="bookingResult.results.gender==='M'">Mr. </span> <span *ngIf="bookingResult.results.gender==='F'">Mrs. </span> {{bookingResult.results.firstName}}  {{bookingResult.results.lastName}}
+                    </p>
+                    <p> <b>Phone Number: </b>{{bookingResult.results.phoneNumber}}</p>
+                    <p> <b>Email: </b>{{bookingResult.results.email}}</p>
+                    <p> Your <b>CheckUp Details: </b></p>
+                                        <ol class="checkups">
+                                            <li *ngFor="let checkup of bookingResult.results.checkUps; let i = index">
+                                                {{checkup.name}}
+                                          </li>
+                                      </ol>                       
+                    <p> <b>Brief Information: </b>{{bookingResult.results.additionalDetails}}</p>
+                    </div>
+                </div> 
+            </nb-card-body>
+            <p> We are looking forward to seeing you soon. </p>
+            <p> Thank you for scheduling an appointment with us. </p>
+            <p>
+                For any assistance, please reach us at <br />
+                <em>Dantakuti Dental Clinic</em>  <br />
+                <em>Balaju, Nepal</em> <br />
+                <em>+977-01-4386128</em>  <br />
+                <em>dantakuti2019@gmail.com</em>  <br />
+            </p>
+        </div>
+        <!-- <button nbButton disabled nbStepperPrevious>prev</button> -->
+        <button nbButton [routerLink]="['']">Return Home</button>
+    </form>
+            
+            
+            
+                           
+
+

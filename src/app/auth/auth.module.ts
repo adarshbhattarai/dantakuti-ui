@@ -35,6 +35,9 @@ import {
     RegisterComponent,
     RequestPasswordComponent
   ],
+  exports:[
+    LoginComponent
+  ]
 })
 export class NgxAuthModule {
 }

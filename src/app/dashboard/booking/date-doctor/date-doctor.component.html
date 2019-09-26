@@ -1,0 +1,59 @@
+<form [formGroup]="appointmentFrm" class="step-container">
+    <h3>Select Date</h3>
+
+    <div class = "calendars">
+    <div class="calendar-container">
+        <span class="subtitle">
+          Selected date: {{ bookDate | date }}
+        </span>
+        <!-- External library require a ControlValueAccessor to work with angular forms. So, add ngDefaultControl-->
+        <nb-calendar [(date)]="bookDate" [min]="min" [boundingMonth]="false"
+        (dateChange)="handleDateChange($event)"
+        ngDefaultControl>
+    </nb-calendar>
+    </div>
+
+    <div class="calendar-container">
+        <span class="subtitle">
+            Selected time: {{time}} o' Clock
+          </span>
+        <input type="time" [value]="time" (click)="open($event)"
+         formControlName="appointmentTime"/>
+    </div>
+
+    <div class="calendar-container" *ngIf='error'>
+            <nb-alert status="primary">
+                    <strong>Oh snap!</strong> Selected time is not available.
+                    <p>Please pick one of the available time listed below
+                        or change the date.
+                    </p>
+            </nb-alert>
+            <nb-card-body>
+                <table>
+                    <tr>
+                        <ng-container>
+                        <th>AM Times</th>
+                        <th>PM Times</th>
+                        </ng-container>
+                    </tr>
+                    <ng-container>
+                            <tr *ngFor="let times of availableTimes">
+                                <td>
+                                    <button type="button" nbButton *ngIf="times[0] !=null" [shape]="round" (click)="setTime(times[0])">{{times[0]}}</button>
+                                </td>
+                                <td>
+                                    <button type="button" nbButton  *ngIf="times[1] !=null " [shape]="round" (click)="setTime(times[1])">{{times[1]}}</button>
+                                </td>
+                            </tr>
+                    </ng-container>        
+                </table>
+            </nb-card-body>
+
+    </div>
+
+    </div>
+   
+    <button nbButton nbStepperPrevious>prev</button>
+    <button nbButton (click)="appointmentSubmit()" >Submit</button>
+</form>
+

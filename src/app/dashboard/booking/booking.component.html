@@ -1,0 +1,18 @@
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12" accent="info">
+    <nb-card-body class = "heig" >
+      <div>
+      <nb-stepper orientation="horizontal" #stepper [linear]="linearMode" disableStepNavigation>
+         <nb-step [stepControl]="step1.userInfoForm" label="User Information">
+          <ngx-user-information (userformSubmit) = "validateUser($event)"  #step1></ngx-user-information>
+          </nb-step>
+        <nb-step [stepControl]="step2.appointmentFrm" label="Select Date">
+          <ngx-date-doctor (appointmentTimeForm) = "validateTime($event)" [bookingError]="bookingError" #step2></ngx-date-doctor>
+          </nb-step>
+        <nb-step [stepControl]="step3.confirmationFrm" [label]="Confirmation">
+          <ngx-confirmation [bookingResult] = "bookingResult" #step3></ngx-confirmation>
+          </nb-step>
+      </nb-stepper>
+    </div>
+    </nb-card-body>
+</nb-card>
+  

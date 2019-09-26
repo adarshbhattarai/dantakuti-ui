@@ -1,0 +1,97 @@
+<!-- <form  *ngIf="userInfoForm" [formGroup]="userInfoForm" (ngSubmit)="onUserFormSubmit()" class="step-container">
+    <h3>Your Information</h3>
+  <div class="input-group">
+    <input nbInput type="text" placeholder="Enter favorite movie" class="form-control" formControlName="email"
+            name="email"
+           [ngClass]="{'form-control-danger': userInfoForm.invalid && (userInfoForm.dirty || userInfoForm.touched)}">
+  </div>
+  <button type="submit" nbButton>next</button>
+</form> -->
+<h3>Your Information</h3>
+<form [formGroup]="userInfoForm" (ngSubmit)="onUserFormSubmit()" class="step-container" style="text-align: left">
+<div class="row">
+  <div class="col-sm-6">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input nbInput type="text" placeholder="First Name" class="form-control" formControlName="firstName"
+        name="firstName"/>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input nbInput type="text" placeholder="Last Name" class="form-control" formControlName="lastName"
+      name="lastName"/>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input nbInput type="text" placeholder="Email" class="form-control" formControlName="email"
+      name="email">
+    </div>
+  </div>
+  <div class="col-sm-4">
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input nbInput type="text" placeholder="Address" class="form-control" formControlName="address"
+      name="address">
+      </div>
+  </div>
+  <div class="col-sm-4">
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input nbInput type="text" placeholder="Phone Number" class="form-control" formControlName="phoneNumber"
+      name="phoneNumber"/>
+      </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+              <label>Gender</label>
+               <label class="custom-control custom-radio">
+                  <nb-radio-group formControlName="gender">
+                  <nb-radio
+                    value=M>
+                    Male
+                  </nb-radio>
+                  <nb-radio 
+                    value=F>
+                    Female
+                  </nb-radio>
+                  </nb-radio-group>
+                </label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-sm-6">
+          <div class="form-group">
+              <nb-checkbox status="success" formControlName="emailSubscription"> Please check if you want an email subscription. </nb-checkbox>
+          </div>
+        </div>
+  </div>
+  <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+            <label for="checkUp">Tick your emergencies.</label>
+            <nb-select multiple placeholder="Please select from dropdown" filled status="success" formControlName="checkUps">
+                <nb-option [value]=sewa *ngFor="let sewa of dantasewa">{{sewa.name}}</nb-option>
+              </nb-select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="additionalDetails">Please provide a brief explanation</label>
+              <textarea nbInput fullWidth formControlName="additionalDetails" placeholder="Please provide some detail">
+              </textarea>
+          </div>
+        </div>
+      </div>
+<button type="submit" nbButton [disabled]="!userInfoForm.valid">next</button>
+</form>

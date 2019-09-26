@@ -1,0 +1,11 @@
+.checkups {
+    list-style-position: inside;
+  }
+  
+  .checkups li{
+    position: relative;
+  }
+  .checkups li a {
+    position: absolute;
+    left: 30px;
+  }

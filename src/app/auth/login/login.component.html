@@ -19,18 +19,10 @@
 
   <div class="form-control-group">
     <label class="label" for="input-email">Email address:</label>
-    <input nbInput
-           fullWidth
-           [(ngModel)]="user.email"
-           #email="ngModel"
-           name="email"
-           id="input-email"
-           pattern=".+@.+\..+"
-           placeholder="Email address"
-           autofocus
-           [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
-           [required]="getConfigValue('forms.validation.email.required')"
-           [attr.aria-invalid]="email.invalid && email.touched ? true : null">
+    <input nbInput fullWidth [(ngModel)]="user.email" #email="ngModel" name="email" id="input-email" pattern=".+@.+\..+"
+      placeholder="Email address" autofocus [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
+      [required]="getConfigValue('forms.validation.email.required')"
+      [attr.aria-invalid]="email.invalid && email.touched ? true : null">
     <ng-container *ngIf="email.invalid && email.touched">
       <p class="error-message" *ngIf="email.errors?.required">
         Email is required!
@@ -43,19 +35,13 @@
 
   <div class="form-control-group">
     <label class="label" for="input-password">Password:</label>
-    <input nbInput
-           fullWidth
-           [(ngModel)]="user.password"
-           #password="ngModel"
-           name="password"
-           type="password"
-           id="input-password"
-           placeholder="Password"
-           [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : ''"
-           [required]="getConfigValue('forms.validation.password.required')"
-           [minlength]="getConfigValue('forms.validation.password.minLength')"
-           [maxlength]="getConfigValue('forms.validation.password.maxLength')"
-           [attr.aria-invalid]="password.invalid && password.touched ? true : null">
+    <input nbInput fullWidth [(ngModel)]="user.password" #password="ngModel" name="password" type="password"
+      id="input-password" placeholder="Password"
+      [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : ''"
+      [required]="getConfigValue('forms.validation.password.required')"
+      [minlength]="getConfigValue('forms.validation.password.minLength')"
+      [maxlength]="getConfigValue('forms.validation.password.maxLength')"
+      [attr.aria-invalid]="password.invalid && password.touched ? true : null">
     <ng-container *ngIf="password.invalid && password.touched ">
       <p class="error-message" *ngIf="password.errors?.required">
         Password is required!
@@ -74,11 +60,7 @@
     <a class="forgot-password" routerLink="/auth/request-password">Forgot Password?</a>
   </div>
 
-  <button nbButton
-          fullWidth
-          status="success"
-          [disabled]="submitted || !form.valid"
-          [class.btn-pulse]="submitted">
+  <button nbButton fullWidth status="success" [disabled]="submitted || !form.valid" [class.btn-pulse]="submitted">
     Log In
   </button>
 </form>
@@ -87,16 +69,10 @@
   or enter with:
   <div class="socials">
     <ng-container *ngFor="let socialLink of socialLinks">
-      <a *ngIf="socialLink.link"
-         [routerLink]="socialLink.link"
-         [attr.target]="socialLink.target"
-         [attr.class]="socialLink.icon"
-         [class.with-icon]="socialLink.icon">{{ socialLink.title }}</a>
-      <a *ngIf="socialLink.url"
-         [attr.href]="socialLink.url"
-         [attr.target]="socialLink.target"
-         [attr.class]="socialLink.icon"
-         [class.with-icon]="socialLink.icon">{{ socialLink.title }}</a>
+      <a *ngIf="socialLink.link" [routerLink]="socialLink.link" [attr.target]="socialLink.target"
+        [attr.class]="socialLink.icon" [class.with-icon]="socialLink.icon">{{ socialLink.title }}</a>
+      <a *ngIf="socialLink.url" [attr.href]="socialLink.url" [attr.target]="socialLink.target"
+        [attr.class]="socialLink.icon" [class.with-icon]="socialLink.icon">{{ socialLink.title }}</a>
     </ng-container>
   </div>
 </section>
